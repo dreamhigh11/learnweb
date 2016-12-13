@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style type="text/css">
+div.time{text-align:center}
+div.list{
+float:right;
+width:300px;}
+</style>
+<script type="text/javascript" src="C:\Users\Administrator\Desktop\xiaolv\jquery-3.1.1.js"></script>
+<script type="text/javascript" src="C:\Users\Administrator\Desktop\xiaolv\js.js"></script>
+
+
+</head>
+
+<body>
+
+<form>
+<div class="time">
+<input type="button"  id="starttime" value="开始任务！" onClick="timedCount()">
+<input type="text" id="txt">
+<input type="button" id="stoptime" value="暂停计时！" onClick="stopCount()">
+<input type="button" id="endtime" value="停止计时！" onClick="endCount()">
+</div>
+</form>
+
+<div class="task" style="text-align:center; position:relative;">
+<h2 onclick="add()">选择任务：学习1小时</h2>
+</div>
+
+
+<div class="list" id="list1">
+
+<p>任务进行中</p>
+
+</div>
+
+
+
+
+</body>
+
+</html>
