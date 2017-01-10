@@ -63,6 +63,14 @@ color:#fff;
 font-size:200%;
 text-align:center;}
 
+div.coin{
+font-family:myFont;
+color:#fff;
+font-size:80%;
+
+text-align:center;}
+
+
 
 div.task{
 font-family:myFont;
@@ -73,6 +81,10 @@ div.list{
 font-family:myFont;
 color:#fff;}
 
+div.result{
+font-family:myFont;
+color:#fff;
+margin-left:100px;}
 
 
 
@@ -130,10 +142,10 @@ margin:0 auto;
 <div class=" section father">
 
 
-<p class="first"><img class="firstimg" src="642802.png"/><font color="white"><a href="#section2">开始学习</a></font></p>
+<p class="first"><img class="firstimg" src="images/642802.png"/><font color="white"><a href="#section2">开始学习</a></font></p>
 	
-<p class="design"><img class="designimg" src="642802.png"/><font color="white"><a>设计任务</a></font></p>
-<p class="acheived"><img class="acheivedimg" src="642802.png"/><font color="white"><a href="#section3">查看成就</a></font></p>
+<p class="design"><img class="designimg" src="images/642802.png"/><font color="white"><a>设计任务</a></font></p>
+<p class="acheived"><img class="acheivedimg" src="images/642802.png"/><font color="white"><a href="#section3">查看成就</a></font></p>
 </div>
 
 <div class="section black" id="section2">
@@ -153,7 +165,11 @@ margin:0 auto;
 <h2 onclick="add()">选择任务：学习1小时</h2>
 </div>
 
+<div class="result">
 
+<p>我的金币</p>
+<p id="result1">?</p>
+</div>
 <div class="list" id="list1">
 
 <p>任务进行中</p>
@@ -161,11 +177,19 @@ margin:0 auto;
 </div>
 
 
+
+</div>
+
+
 </div>
 
 <div class="section acheivement" id="section3">
-<!--	<p>我的金币</p>
-	<button id="try"> 试试手气</button>
+<div class="coin">
+<p>我的金币</p>
+<p id="gain">?</p>
+<div>
+
+<!--	<button id="try"> 试试手气</button>
 	<div>
 		<p><img class="img1" src="2.jpg"/></p>
 	</div>

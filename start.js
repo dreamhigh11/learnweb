@@ -14,7 +14,7 @@ var a=1
 
 
 
-var txt = '{ "acheive" : [' +
+/*var txt = '{ "acheive" : [' +
 '{ "name":"学习一小时" , "number":"0" },'  +
  ']}';
 
@@ -24,22 +24,33 @@ var message=obj.acheive[0].number;
 
 
 
-
+*/
 
 
 function timedCount()
 {
+	
+	
+	
+	
+	
 	if(c!=0){
 		document.getElementById('txt').value=c;
 		c=c-1;
-		t=setTimeout("timedCount()",1000);
+		t=setTimeout("timedCount()",1000);//计时
 	}
 	else
 	{
 		endCount();
-		alert(message);
+		alert("");
+		
+		$.get("./php/plusone.php",function(data,status){//计时完成后执行php文件增加金币数
+    
+		$("#gain,#result1").html(data);//金币数显示出来
+  });
+		
 	}
-}//计时
+}
 
 function endCount()
 {
@@ -100,7 +111,7 @@ function wipeout()
 {
 
 
-document.getElementById("nowtask").style.textDecoration="line-through";
+document.getElementById("nowtask").style.textDecoration="line-through";//划掉一个任务
 
 }
 
@@ -150,23 +161,47 @@ $("#try").click(function()
 $("#flip").click(function(){//随机数绝对抽哪张卡
 	  var x = 1000;     
     var y = 0;     
- var rand = parseInt(Math.random() * (x - y ));     
-  if (rand>500){
-$("img.img1").html("").attr("src","500.png");
+ var rand = parseInt(Math.random() * (x - y ));
+
+if (rand>800){
+	$("img.img1").html("").attr("src","images/500.png");
+	}
+else if(rand<=800&&rand>=500){
+	$("img.img1").html("").attr("src","images/konata.png");
 }
+else if(rand<=500&&rand>=300){
+	$("img.img1").html("").attr("src","images/mio.png");
+}
+
+	
 else{
-	$("img.img1").html("").attr("src","1.png");
+	$("img.img1").html("").attr("src","images/1.png");
 	
 }
 
-    $("#card").toggleClass("flipped");
-document.getElementById("flip").style.display="none";
+    $("#card").toggleClass("flipped");//卡片翻面
+document.getElementById("flip").style.display="none";//隐藏抽卡按钮，不能在正门状况下接着抽
+
+
+
+$.get("./php/minusone.php",function(data,status){//执行php文件减少一个金币
+    
+	$("#gain").html(data);//金币数显示出来
+  });
+  //htmlobj=$.ajax({url:"1.txt",async:false});
+  //$("#gain").html(htmlobj.responseText);
+ 
+
+
+
+
+
  });
  
 $("#reset").click(function(){
 	
 
-    $("#card").toggleClass("flipped");
+    $("#card").toggleClass("flipped");//卡牌css属性换成翻面，引发翻牌
 document.getElementById("flip").style.display="inline";
  }); 
  
@@ -217,6 +252,13 @@ $('div.father a').bind('click',function(event){   //bind函数（事件，反应
                     }, 1000);
                     */
     event.preventDefault();//把本身点击链接转到位置的默认事件要消除
+	
+	
+	$.get("./php/read.php",function(data,status){//执行php文件读取金币数
+    
+	$("#gain,#result1").html(data);//金币数显示出来
+  });
+	
 });
           
 
@@ -226,7 +268,11 @@ $('div.father a').bind('click',function(event){   //bind函数（事件，反应
   {
   $(".time").show();
   $(".task").animate({left:'+=150px'});
-  $(".task").fadeOut("slow");
+  $(".task").fadeOut("slow");//弹出计时框，消去任务提示
+  
+  
+  
+  
   });
 
 
