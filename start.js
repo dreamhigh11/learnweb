@@ -166,13 +166,18 @@ $("#flip").click(function(){//随机数绝对抽哪张卡
 if (rand>800){
 	$("img.img1").html("").attr("src","images/500.png");
 	}
-else if(rand<=800&&rand>=500){
+else if(rand<=800&&rand>600){
 	$("img.img1").html("").attr("src","images/konata.png");
 }
-else if(rand<=500&&rand>=300){
+else if(rand<=600&&rand>400){
+	$("img.img1").html("").attr("src","images/konata.png");
+}
+else if(rand<=400&&rand>300){
 	$("img.img1").html("").attr("src","images/mio.png");
 }
-
+else if(rand<=300&&rand>100){
+	$("img.img1").html("").attr("src","images/morisama.png");
+}
 	
 else{
 	$("img.img1").html("").attr("src","images/1.png");
