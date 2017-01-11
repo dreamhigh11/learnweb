@@ -24,7 +24,7 @@ margin-top:300px;
 color:#fff;
 background:#000 url(mario.jpg) repeat-x bottom left;
 }
-img{
+div.father img{
 height:1em;
 width:1em;
 vertical-align:text-top;
@@ -32,6 +32,8 @@ padding-right:10px;
 display:none;}
 
 
+div.gallery img{
+width:300px}
 
 img.img1{
 display:inline;
@@ -62,6 +64,13 @@ font-family:myFont;
 color:#fff;
 font-size:200%;
 text-align:center;}
+
+
+div.gallery{
+font-family:myFont;
+color:#fff;
+font-size:200%;
+}
 
 div.coin{
 font-family:myFont;
@@ -146,6 +155,7 @@ margin:0 auto;
 	
 <p class="design"><img class="designimg" src="images/642802.png"/><font color="white"><a>设计任务</a></font></p>
 <p class="acheived"><img class="acheivedimg" src="images/642802.png"/><font color="white"><a href="#section3">查看成就</a></font></p>
+
 </div>
 
 <div class="section black" id="section2">
@@ -196,18 +206,33 @@ margin:0 auto;
 -->
   <p><button id="flip" style="text-align:center">试试手气</button>
   <button id="reset" style="text-align:center">再来一次</button>
+  <p  style="float:left"><font color="white"><a class="down" href="#section4">查看收集</a></font></p>	
   </p>
 
 <section class="container">
 
   <div id="card">
-
+	
     <figure class="front"></figure>
     <figure class="back"><img class="img1"/></figure>
   </div>
 </section>   	
 	
-	
+
 </div>
+
+</div>
+</div>
+
+
+
+
+
+
+<div class="section gallery" id="section4">
+<p id="uuu">1</p>
+<img src="./images/1.png"/><img src="./images/morisama.png"/>
+</div>
+
 </body>
 </html>

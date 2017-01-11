@@ -170,7 +170,7 @@ else if(rand<=800&&rand>600){
 	$("img.img1").html("").attr("src","images/konata.png");
 }
 else if(rand<=600&&rand>400){
-	$("img.img1").html("").attr("src","images/konata.png");
+	$("img.img1").html("").attr("src","images/tamako.png");
 }
 else if(rand<=400&&rand>300){
 	$("img.img1").html("").attr("src","images/mio.png");
@@ -244,7 +244,7 @@ function(){
 
 
 
-$('div.father a').bind('click',function(event){   //bind函数（事件，反应行为)
+$("div.father a,a.down").bind('click',function(event){   //bind函数（事件，反应行为)
     var $anchor = $(this);  //把a元素的内容整体传给变量$anchor ，$(this)的$有意义，Sanchor的$没有意义，jquery的标记习惯
                     
     $('html, body').stop().animate({ //animate动画函数（运动元素属性，运动时间，运功方式（easing里的函数））
@@ -268,7 +268,7 @@ $('div.father a').bind('click',function(event){   //bind函数（事件，反应
           
 
 
-	$(".time").hide();
+$(".time").hide();
   $(".task").click(function()
   {
   $(".time").show();
@@ -280,7 +280,17 @@ $('div.father a').bind('click',function(event){   //bind函数（事件，反应
   
   });
 
+$("#section4").click(function(){
+	$.get("./php/scan.php",function(data,status){//执行php文件读取金币数
+    
+	//var photos= 'data');待解决！
+	//$("#uuu").html(photos);
+  });
 
+  
+ }); 
+ 
+ 
 
 
 });
