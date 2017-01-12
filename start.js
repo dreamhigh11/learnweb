@@ -162,28 +162,28 @@ $("#flip").click(function(){//随机数绝对抽哪张卡
 
 if (rand>800){
 	$("img.img1").html("").attr("src","images/500.png");
-    $.post("./php/test.php",{name:"500.png"});//复制已抽到的图片到collection文件夹
+    $.post("./php/collection.php",{name:"500.png"});//复制已抽到的图片到collection文件夹
 	}
 else if(rand<=800&&rand>600){
 	$("img.img1").html("").attr("src","images/konata.png");
-	$.post("./php/test.php",{name:"konata.png"});//复制已抽到的图片到collection文件夹
+	$.post("./php/collection.php",{name:"konata.png"});//复制已抽到的图片到collection文件夹
 }
 else if(rand<=600&&rand>400){
 	$("img.img1").html("").attr("src","images/tamako.png");
-	$.post("./php/test.php",{name:"tamako.png"});//复制已抽到的图片到collection文件夹
+	$.post("./php/collection.php",{name:"tamako.png"});//复制已抽到的图片到collection文件夹
 }
 else if(rand<=400&&rand>300){
 	$("img.img1").html("").attr("src","images/mio.png");
-	$.post("./php/test.php",{name:"mio.png"});//复制已抽到的图片到collection文件夹
+	$.post("./php/collection.php",{name:"mio.png"});//复制已抽到的图片到collection文件夹
 }
 else if(rand<=300&&rand>100){
 	$("img.img1").html("").attr("src","images/morisama.png");
-	$.post("./php/test.php",{name:"morisama.png"});//复制已抽到的图片到collection文件夹
+	$.post("./php/collection.php",{name:"morisama.png"});//复制已抽到的图片到collection文件夹
 }
 	
 else{
 	$("img.img1").html("").attr("src","images/1.png");
-	$.post("./php/test.php",{name:"1.png"});//复制已抽到的图片到collection文件夹
+	$.post("./php/collection.php",{name:"1.png"});//复制已抽到的图片到collection文件夹
 	
 }
 

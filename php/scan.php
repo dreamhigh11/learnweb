@@ -1,6 +1,6 @@
 <?php 
 
-  $hostdir="../images/";
+  $hostdir="../collection/";
 
 //获取本文件目录的文件夹地址
 
@@ -14,9 +14,9 @@ foreach ($filesnames as $name) {
 
 //echo $name; 
 
-$url="./images/".$name;
+$url="./collection/".$name;
 
-$aurl= "<a href=\"".$url."\">".$url."</a>";
+$aurl= $url;
 
 echo $aurl . "<br/>";
 

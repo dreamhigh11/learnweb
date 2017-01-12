@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html>
-<body>
+
 
 <?php
 $myfile = fopen("../1.txt", "r") or die("Unable to open file!");
@@ -11,5 +9,3 @@ echo $coin;
 fclose($myfile)
 ?>
 
-</body>
-</html>
