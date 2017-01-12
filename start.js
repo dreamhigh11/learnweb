@@ -141,9 +141,6 @@ document.getElementById("nowtask").style.textDecoration="line-through";//划掉�
 
 
 
-
-
-
 $(document).ready(function()
 {
 
@@ -165,22 +162,28 @@ $("#flip").click(function(){//随机数绝对抽哪张卡
 
 if (rand>800){
 	$("img.img1").html("").attr("src","images/500.png");
+    $.post("./php/test.php",{name:"500.png"});//复制已抽到的图片到collection文件夹
 	}
 else if(rand<=800&&rand>600){
 	$("img.img1").html("").attr("src","images/konata.png");
+	$.post("./php/test.php",{name:"konata.png"});//复制已抽到的图片到collection文件夹
 }
 else if(rand<=600&&rand>400){
 	$("img.img1").html("").attr("src","images/tamako.png");
+	$.post("./php/test.php",{name:"tamako.png"});//复制已抽到的图片到collection文件夹
 }
 else if(rand<=400&&rand>300){
 	$("img.img1").html("").attr("src","images/mio.png");
+	$.post("./php/test.php",{name:"mio.png"});//复制已抽到的图片到collection文件夹
 }
 else if(rand<=300&&rand>100){
 	$("img.img1").html("").attr("src","images/morisama.png");
+	$.post("./php/test.php",{name:"morisama.png"});//复制已抽到的图片到collection文件夹
 }
 	
 else{
 	$("img.img1").html("").attr("src","images/1.png");
+	$.post("./php/test.php",{name:"1.png"});//复制已抽到的图片到collection文件夹
 	
 }
 
@@ -280,12 +283,36 @@ $(".time").hide();
   
   });
 
-$("#section4").click(function(){
-	$.get("./php/scan.php",function(data,status){//执行php文件读取金币数
-    
-	//var photos= 'data');待解决！
-	//$("#uuu").html(photos);
-  });
+$(".down").click(function(){//点击收集显示所有已抽到的卡牌
+
+	 $.ajax({
+		 url:"./php/scan.php",  //遍历文件夹下的图片地址
+		async:false,
+		success: function(data){  
+		
+			
+			var strs= new Array(); //定义一数组 
+			strs=data.split("<br/>"); //字符分割 
+			for (i=2;i<strs.length-1 ;i++ ) 
+			{ 
+		
+						var bigImg = document.createElement("img"); //创建一个img元素 
+						var address=strs[i];
+						 bigImg.src=address; //给img元素的src属性赋值 
+							document.getElementById("section4").appendChild(bigImg); //为dom添加子元素img 
+		
+		
+		
+		
+		
+			} 
+		
+          
+		}
+		});
+ 
+  
+
 
   
  }); 
