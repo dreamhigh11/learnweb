@@ -200,10 +200,48 @@ else if(rand<=990&&rand>700){
 		
 	}
 }
-/*else if(rand<=980&&rand>970){
-	$("img.img1").html("").attr("src","images/mio.png");
-	$.post("./php/collection.php",{name:"mio.png"});//复制已抽到的图片到collection文件夹
+else if(rand<=700&&rand>500){
+	if(rand<700&&rand>690){
+	$("img.img1").html("").attr("src","images/kon/mio.png");
+	$.post("./php/collection.php",{name:"kon/mio.png"});//复制已抽到的图片到collection文件夹	
+		
+		
+	}
+	else if(rand<690&&rand>640){
+		$("img.img1").html("").attr("src","images/kon/sawako.png");
+	$.post("./php/collection.php",{name:"kon/sawako.png"});//复制已抽到的图片到collection文件夹	
+		
+	}
+	
+	else if(rand<640&&rand>600){
+		$("img.img1").html("").attr("src","images/kon/mugi.png");
+	$.post("./php/collection.php",{name:"kon/mugi.png"});//复制已抽到的图片到collection文件夹	
+		
+	}
+	else if(rand<600&&rand>570){
+		$("img.img1").html("").attr("src","images/kon/jun.png");
+	$.post("./php/collection.php",{name:"kon/jun.png"});//复制已抽到的图片到collection文件夹	
+		
+	}
+	else if(rand<570&&rand>540){
+		$("img.img1").html("").attr("src","images/kon/ui.png");
+	$.post("./php/collection.php",{name:"kon/ui.png"});//复制已抽到的图片到collection文件夹	
+		
+	}
+	else if(rand<540&&rand>510){
+		$("img.img1").html("").attr("src","images/kon/ritsu.png");
+	$.post("./php/collection.php",{name:"kon/ritsu.png"});//复制已抽到的图片到collection文件夹	
+		
+	}
+	else{
+		$("img.img1").html("").attr("src","images/kon/yui.png");
+	$.post("./php/collection.php",{name:"kon/yui.png"});//复制已抽到的图片到collection文件夹	
+		
+	}
 }
+
+
+/*
 else if(rand<=970&&rand>960){
 	$("img.img1").html("").attr("src","images/morisama.png");
 	$.post("./php/collection.php",{name:"morisama.png"});//复制已抽到的图片到collection文件夹
@@ -362,6 +400,44 @@ $("#tamako").empty();
           
 		}
 		});
+		
+		
+		
+		
+$("#kon").empty();
+	 $.ajax({
+		url:"./php/scankon.php",  //遍历kon文件夹下的图片地址
+		async:false,
+		success: function(data){  
+		
+			
+			var strs= new Array(); //定义一数组 
+			strs=data.split("<br/>"); //字符分割 
+			for (i=2;i<strs.length-1 ;i++ ) 
+			{ 
+		
+						var bigImg = document.createElement("img"); //创建一个img元素 
+						var address=strs[i];
+						 bigImg.src=address; //给img元素的src属性赋值 
+							document.getElementById("kon").appendChild(bigImg); //为dom添加子元素img 
+		
+		
+		
+		
+		
+			} 
+		
+		for(j=1;j<12-strs.length;j++)
+		{
+			var bigImg = document.createElement("img"); //创建一个img元素 
+			bigImg.src="./none.png";//未获得的卡牌显示未获得
+			document.getElementById("kon").appendChild(bigImg); //为dom添加子元素img 
+			
+		}
+			
+          
+		}
+		});		
  
   
 
