@@ -1,6 +1,6 @@
 <?php 
   
-  $file="collection/";
+  $file="collection/tamako/";
   $hostdir="../".$file;
 
 //获取本文件目录的文件夹地址

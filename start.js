@@ -5,7 +5,7 @@
 
 
 
-var c=5
+var c=3600
 var t
 var a=1
 
@@ -54,7 +54,7 @@ function timedCount()
 
 function endCount()
 {
-c=5;
+c=3600;
 //a=1;
 setTimeout("document.getElementById('txt').value=0",0);
 clearTimeout(t);
@@ -159,31 +159,74 @@ $("#flip").click(function(){//随机数绝对抽哪张卡
 	  var x = 1000;     
     var y = 0;     
  var rand = parseInt(Math.random() * (x - y ));
-
-if (rand>800){
+ 
+if (rand>990){
 	$("img.img1").html("").attr("src","images/500.png");
     $.post("./php/collection.php",{name:"500.png"});//复制已抽到的图片到collection文件夹
 	}
-else if(rand<=800&&rand>600){
-	$("img.img1").html("").attr("src","images/konata.png");
-	$.post("./php/collection.php",{name:"konata.png"});//复制已抽到的图片到collection文件夹
+
+else if(rand<=990&&rand>700){
+	
+	if(rand<990&&rand>980){
+	$("img.img1").html("").attr("src","images/tamako/tamako.png");
+	$.post("./php/collection.php",{name:"tamako/tamako.png"});//复制已抽到的图片到collection文件夹	
+		
+		
+	}
+	else if(rand<980&&rand>900){
+		$("img.img1").html("").attr("src","images/tamako/anko.png");
+	$.post("./php/collection.php",{name:"tamako/anko.png"});//复制已抽到的图片到collection文件夹	
+		
+	}
+	
+	else if(rand<900&&rand>850){
+		$("img.img1").html("").attr("src","images/tamako/choi.png");
+	$.post("./php/collection.php",{name:"tamako/choi.png"});//复制已抽到的图片到collection文件夹	
+		
+	}
+	else if(rand<850&&rand>800){
+		$("img.img1").html("").attr("src","images/tamako/kanna.png");
+	$.post("./php/collection.php",{name:"tamako/kanna.png"});//复制已抽到的图片到collection文件夹	
+		
+	}
+	else if(rand<800&&rand>750){
+		$("img.img1").html("").attr("src","images/tamako/midori.png");
+	$.post("./php/collection.php",{name:"tamako/midori.png"});//复制已抽到的图片到collection文件夹	
+		
+	}
+	else{
+		$("img.img1").html("").attr("src","images/tamako/shiori.png");
+	$.post("./php/collection.php",{name:"tamako/shiori.png"});//复制已抽到的图片到collection文件夹	
+		
+	}
 }
-else if(rand<=600&&rand>400){
-	$("img.img1").html("").attr("src","images/tamako.png");
-	$.post("./php/collection.php",{name:"tamako.png"});//复制已抽到的图片到collection文件夹
-}
-else if(rand<=400&&rand>300){
+/*else if(rand<=980&&rand>970){
 	$("img.img1").html("").attr("src","images/mio.png");
 	$.post("./php/collection.php",{name:"mio.png"});//复制已抽到的图片到collection文件夹
 }
-else if(rand<=300&&rand>100){
+else if(rand<=970&&rand>960){
 	$("img.img1").html("").attr("src","images/morisama.png");
 	$.post("./php/collection.php",{name:"morisama.png"});//复制已抽到的图片到collection文件夹
 }
-	
+else if(rand<=960&&rand>900){
+	$("img.img1").html("").attr("src","images/konata.png");
+	$.post("./php/collection.php",{name:"konata.png"});//复制已抽到的图片到collection文件夹
+}	
+else if(rand<=900&&rand>700){
+	$("img.img1").html("").attr("src","images/frenda.jpg");
+	$.post("./php/collection.php",{name:"frenda.jpg"});//复制已抽到的图片到collection文件夹
+}	
+else if(rand<=700&&rand>500){
+	$("img.img1").html("").attr("src","images/onodera.jpg");
+	$.post("./php/collection.php",{name:"onodera.jpg"});//复制已抽到的图片到collection文件夹
+}
+else if(rand<=500&&rand>300){
+	$("img.img1").html("").attr("src","images/menma.png");
+	$.post("./php/collection.php",{name:"menma.png"});//复制已抽到的图片到collection文件夹
+}*/
 else{
-	$("img.img1").html("").attr("src","images/1.png");
-	$.post("./php/collection.php",{name:"1.png"});//复制已抽到的图片到collection文件夹
+	$("img.img1").html("").attr("src","images/marika.jpg");
+	$.post("./php/collection.php",{name:"marika.jpg"});//复制已抽到的图片到collection文件夹
 	
 }
 
@@ -284,9 +327,10 @@ $(".time").hide();
   });
 
 $(".down").click(function(){//点击收集显示所有已抽到的卡牌
-
+	
+$("#tamako").empty();
 	 $.ajax({
-		 url:"./php/scan.php",  //遍历文件夹下的图片地址
+		url:"./php/scantamako.php",  //遍历tamako文件夹下的图片地址
 		async:false,
 		success: function(data){  
 		
@@ -299,7 +343,7 @@ $(".down").click(function(){//点击收集显示所有已抽到的卡牌
 						var bigImg = document.createElement("img"); //创建一个img元素 
 						var address=strs[i];
 						 bigImg.src=address; //给img元素的src属性赋值 
-							document.getElementById("section4").appendChild(bigImg); //为dom添加子元素img 
+							document.getElementById("tamako").appendChild(bigImg); //为dom添加子元素img 
 		
 		
 		
@@ -307,6 +351,14 @@ $(".down").click(function(){//点击收集显示所有已抽到的卡牌
 		
 			} 
 		
+		for(j=1;j<10-strs.length;j++)
+		{
+			var bigImg = document.createElement("img"); //创建一个img元素 
+			bigImg.src="./none.png";//未获得的卡牌显示未获得
+			document.getElementById("tamako").appendChild(bigImg); //为dom添加子元素img 
+			
+		}
+			
           
 		}
 		});
