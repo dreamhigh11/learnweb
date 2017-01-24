@@ -5,7 +5,7 @@
 
 
 
-var c=3600
+var c=5
 var t
 var a=1
 
@@ -44,9 +44,16 @@ function timedCount()
 		endCount();
 		alert("");
 		
-		$.get("./php/plusone.php",function(data,status){//计时完成后执行php文件增加金币数
+		$.get("./php/plusonecoin.php",function(data,status){//计时完成后执行php文件增加金币数
     
-		$("#gain,#result1").html(data);//金币数显示出来
+		$("#gain").html(data);//金币数显示出来
+		
+	});	
+		
+		$.get("./php/plusonepoint.php",function(data1,status){//计时完成后执行php文件增加积分数
+    
+		$("#result1").html(data1);//积分数显示出来
+		
   });
 		
 	}
@@ -54,7 +61,7 @@ function timedCount()
 
 function endCount()
 {
-c=3600;
+c=5;
 //a=1;
 setTimeout("document.getElementById('txt').value=0",0);
 clearTimeout(t);
