@@ -5,7 +5,7 @@
 
 
 
-var c=5
+var c=1500
 var t
 var a=1
 
@@ -61,7 +61,7 @@ function timedCount()
 
 function endCount()
 {
-c=5;
+c=1500;
 //a=1;
 setTimeout("document.getElementById('txt').value=0",0);
 clearTimeout(t);
@@ -104,7 +104,7 @@ function add()
 {
 	var para=document.createElement("p");
 	para.id="nowtask"; 
-var node=document.createTextNode("学习一小时");
+var node=document.createTextNode("学习25分钟");
 para.appendChild(node);
 
 var element=document.getElementById("list1");
@@ -352,8 +352,16 @@ $("div.father a,a.down").bind('click',function(event){   //bind函数（事件�
 	
 	$.get("./php/read.php",function(data,status){//执行php文件读取金币数
     
-	$("#gain,#result1").html(data);//金币数显示出来
+	$("#gain").html(data);//金币数显示出来
+	
   });
+	$.get("./php/readpoint.php",function(data,status){//执行php文件读取金币数
+    
+	$("#result1").html(data);//金币数显示出来
+	
+  });
+	
+	
 	
 });
           
